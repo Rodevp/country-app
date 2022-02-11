@@ -235,7 +235,28 @@
 }
 
 @media screen and (min-width: 720px) {
+    .card {
+        width: 65%;
+    }
+
+    .card__image-content {
+        width: 20%;
+        padding-left: 1.2em;
+    }
     
+    .card__image {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card__title {
+        font-size: 1rem;
+    }
+
+    .info__item {
+        margin-bottom: 0.6rem;
+    }
+
 }
 
 @media screen and (min-width: 920px) {
