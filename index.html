@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country APP</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="title">
+            Donde estás ?
+        </h1>
+        <div class="change__theme">
+            <button>
+                Modo Oscuro
+            </button>
+        </div>
+    </header>
+
+    <main class="wrapper">
+        <section class="option">
+            <section class="option__item">
+                <input
+                    type="text"
+                    class="search"
+                    id="search"
+                    placeholder="Buscar Pais"
+                >
+            </section>
+            <section class="option__item">
+                <select
+                    name="country"
+                    id="country"
+                    aria-placeholder="Selecciona pais"
+                >
+                    <option value="africa">africa</option>
+                    <option value="america">america</option>
+                    <option value="europe">europe</option>
+                    <option value="asia">asia</option>
+                    <option value="oceania">oceania</option>
+                </select>
+            </section>
+        </section>
+        <section class="grid_countrys">
+            <div class="card">
+                <div class="card__image-content">
+                    <img src="" alt="image country" class="card__image">
+                </div>
+                <h3 class="card__title">
+                    Portugal
+                </h3>
+                <section class="card__information">
+                    <ul class="information">
+                        <li class="info__item">Población: </li>
+                        <li class="info__item">Región: </li>
+                        <li class="info__item">Cápital: </li>
+                    </ul>
+                    <div class="content__btn">
+                        <button class="button__card">
+                            Ver más
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+
+</body>
+</html>
