@@ -61,6 +61,7 @@
     font-family: var(--font);
     border: none;
     color: var(--White-Dark-Mode-Text);
+    cursor: pointer;
     background-color: var(--Very-Dark-Blue-DarkTheme-Background);
 }
 
@@ -76,6 +77,7 @@
                           "cards cards"
                           "cards cards";
     height: 90vh;
+    padding-top: 0.5em;
     background-color: var(--Very-Light-Gray-LightMode-Background);
 }
 
@@ -318,5 +320,25 @@
 }
 
 @media screen and (min-width: 1020px) {
+    .card {
+        width: 95%;
+    }
+    .card__image-content {
+        height: 95px;
+    }
+}
+
+@media screen and (min-width: 1040px) {
     
+    .card {
+        width: 90%;
+    }
+
+    .card__image-content {
+        height: 110px;
+    }
+
+    .button__card {
+        font-size: 0.9rem;
+    }
 }
