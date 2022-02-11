@@ -214,6 +214,24 @@
 
 @media screen and (min-width: 620px) {
     
+    .title {
+        font-size: 1.6rem;
+    }
+
+    .change__theme button{
+        width: 90%;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .card {
+        width: 65%;
+    }
+
+    .search__input, .select__country {
+        font-size: 1rem;
+    }
+
 }
 
 @media screen and (min-width: 720px) {
