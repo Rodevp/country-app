@@ -12,7 +12,8 @@ const parseDataCountrie = (data) => {
             nativeName: dataOfCountrie.nativeName,
             currencie: dataOfCountrie.currencies[0].code,
             languages: dataOfCountrie.languages.map(lan => lan.name),
-            borders: dataOfCountrie.borders.slice(0, 3) 
+            borders: dataOfCountrie.borders.slice(0, 3),
+            flag: dataOfCountrie.flags.svg 
         }
         
         return dataParse
