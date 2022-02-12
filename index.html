@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="./app.css">
     <title>Country APP</title>
 </head>
+
 <body>
     <header class="header">
         <h1 class="title">
@@ -22,20 +24,10 @@
     <main class="wrapper">
         <section class="option">
             <section class="option__item">
-                <input
-                    type="text"
-                    class="search__input"
-                    id="search"
-                    placeholder="Buscar Pais"
-                >
+                <input type="text" class="search__input" id="search" placeholder="Buscar Pais">
             </section>
             <section class="option__item">
-                <select
-                    name="country"
-                    id="country"
-                    aria-placeholder="Selecciona pais"
-                    class="select__country"
-                >
+                <select name="country" id="country" aria-placeholder="Selecciona pais" class="select__country">
                     <option value="africa">africa</option>
                     <option value="america">america</option>
                     <option value="europe">europe</option>
@@ -511,6 +503,48 @@
         </section>
     </main>
 
+    <div class="modal">
+        <div class="modal__effect">
+
+        </div>
+        <section class="modal__information">
+            <div class="close__modal">
+                Cerrar
+            </div>
+            <div class="country__image_content">
+                <img src="./prueba.png" alt="image country">
+            </div>
+            <section class="information__country">
+                <h2 class="country__name">
+                    Portugal
+                </h2>
+                <ul class="infomation__items">
+                    <li class="item">Nombre Nativo: </li>
+                    <li class="item">Población: </li>
+                    <li class="item">Región: </li>
+                    <li class="item">Sub Región: </li>
+                    <li class="item">Capital</li>
+                </ul>
+                <ul class="more__information_items">
+                    <li class="mora__information">Dominio: </li>
+                    <li class="mora__information">Moneda: </li>
+                    <li class="mora__information">Lenguajes </li>
+                </ul>
+            </section>
+            <section class="border__countries">
+                <h2 class="border__countries_title">
+                    Paises Vecinos
+                </h2>
+                <div class="countries__border">
+                    <div class="countrys__border_items"></div>
+                    <div class="countrys__border_items"></div>
+                    <div class="countrys__border_items"></div>
+                </div>
+            </section>
+        </section>
+    </div>
+
 
 </body>
+
 </html>
