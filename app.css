@@ -325,6 +325,7 @@
     position: absolute;
     left: 98%;
     top: 0;
+    cursor: pointer;
     color: var(--White-Dark-Mode-Text);
     background-color: red;
 }

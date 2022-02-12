@@ -65,7 +65,7 @@ const createCard = (event, data) => {
 const createModal = (data, event) => {
     
     //creando nodos del DOM
-    const modal = document.createElement('div')
+    const modal = document.getElementById('modal')
     const modalEffect = document.createElement('div')
     const modalInfo = document.createElement('div')
     const modalInfoCountry = document.createElement('div')
@@ -95,7 +95,6 @@ const createModal = (data, event) => {
     const languages = document.createElement('li')
 
     //agregando atributos
-    modal.classList.add('modal')
     modalEffect.classList.add('modal__effect')
 
     modalInfo.classList.add('modal__information')
@@ -124,9 +123,9 @@ const createModal = (data, event) => {
     titleBorderCountries.classList.add('border__countries_title')
     borderCountriesContent.classList.add('countries__border')
 
-    borderCountrieOne.classList.add('countrys__border_item')
-    borderCountrieTwo.classList.add('countrys__border_item')
-    borderCountrieThree.classList.add('countrys__border_item')
+    borderCountrieOne.classList.add('countrys__border_items')
+    borderCountrieTwo.classList.add('countrys__border_items')
+    borderCountrieThree.classList.add('countrys__border_items')
 
     //textos y más
     closeModal.textContent = 'X'
