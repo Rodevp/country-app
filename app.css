@@ -72,10 +72,6 @@
     grid-template-areas: "option option"
                           "cards cards"
                           "cards cards"
-                          "cards cards"
-                          "cards cards"
-                          "cards cards"
-                          "cards cards"
                           "cards cards";
     height: 90vh;
     padding-top: 0.5em;
@@ -199,6 +195,31 @@
     font-weight: 600;
     cursor: pointer;
     color: var(--Very-Dark-Blue-shadowText);
+}
+
+.dark__mode_theme_card {
+    background-color: var(--Dark-Blue-DarkTheme-card);
+    color: var(--White-Dark-Mode-Text);
+}
+
+.dark__mode_theme-Background {
+    background-color: var(--Very-Dark-Blue-DarkTheme-Background);
+}
+
+.dark__mode_theme_inputs {
+    background-color: var(--Dark-Blue-DarkTheme-card);
+}
+
+.theme__dark_text {
+    color: var(--White-Dark-Mode-Text);
+}
+
+.theme__dark_text:focus, .dark__mode_theme_inputs:focus::placeholder {
+    color: var(--Very-Dark-Blue-DarkTheme-Background);;
+}
+
+.dark__mode_theme_inputs::placeholder { 
+    color: var(--White-Dark-Mode-Text);
 }
 
 /*modal*/
@@ -403,6 +424,7 @@
 
     .card {
         width: 86%;
+        padding-top: 0;
     }
 
     .grid_countrys{
