@@ -13,7 +13,8 @@ const parseDataCountrie = (data) => {
             currencie: dataOfCountrie.currencies[0].code,
             languages: dataOfCountrie.languages.map(lan => lan.name),
             borders: dataOfCountrie.borders.slice(0, 3),
-            flag: dataOfCountrie.flags.svg 
+            flag: dataOfCountrie.flags.svg ,
+            capital: dataOfCountrie.capital
         }
         
         return dataParse

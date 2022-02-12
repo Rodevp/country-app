@@ -4,4 +4,5 @@ import {
     getCountriesOfContinets,
     getCountrie
 } from './js/api.js'
+import { parseDataCountrie } from './js/utils.js'
 
