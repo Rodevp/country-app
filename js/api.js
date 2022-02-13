@@ -16,6 +16,7 @@ const getCountrie = async (name) => {
 
 }
 
+//TODO: dejar para cuando funciona la api de rest countrie
 const getCountriesOfContinets = async (continent) => {
     
     try {

@@ -1,16 +1,16 @@
-const validBorder = (borders) => {
+const validData = (data) => {
 
-    if (borders === undefined ) return ['', '', '']
+    if (typeof data === "undefined" ) return ['X', 'X', 'X']
 
-    if (borders.length === 1 ) return [...borders, '', '']
+    if (typeof data === "object" ) return ['X', 'X', 'X']
 
+    if (data.length === 1 ) return [...data, 'X', 'X']
+
+    if (data.length > 3 ) return data.slice(0, 3)
     
-    if (borders.length > 3 ) return borders.slice(0, 3)
-    
-    if (borders.length < 3 ) return [...borders, '']
+    if (data.length < 3 ) return [...data, 'X']
 
 }
-
 
 
 const parseDataCountrie = (data) => {
@@ -18,7 +18,7 @@ const parseDataCountrie = (data) => {
     const dataCopy = [...data]
 
     const newData = dataCopy.map( dataOfCountrie => {
-        
+
         const dataParse = {
             name: dataOfCountrie.name.toLowerCase(),
             domain: dataOfCountrie.topLevelDomain,
@@ -27,12 +27,12 @@ const parseDataCountrie = (data) => {
             population: dataOfCountrie.population,
             nativeName: dataOfCountrie.nativeName,
             currencie: dataOfCountrie.currencies !== undefined ? dataOfCountrie.currencies[0].code : '',
-            languages: dataOfCountrie.languages.map(lan => lan.name),
-            borders: validBorder(dataOfCountrie.borders),
+            languages: validData( dataOfCountrie.languages.map(lan => lan.nativeName)  ),
+            borders: validData( dataOfCountrie.borders),
             flag: dataOfCountrie.flags.svg ,
             capital: dataOfCountrie.capital
         }
-        
+
         return dataParse
     })
     

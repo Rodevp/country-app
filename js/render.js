@@ -16,15 +16,16 @@ const createCard = (event, data) => {
 
     //creando atributos
     divCard.classList.add('card')
+    divCard.classList.add('ligth')
     wrapperTitle.classList.add('wapper__title')
     cardImageContent.classList.add('card__image-content')
     cardTitle.classList.add('card__title')
     
     cardInformation.classList.add('card__information')
     ulInformation.classList.add('information')
-    infoItemCapital.classList.add('info__item')
-    infoRegion.classList.add('info__item')
-    infoItemPoblation.classList.add('info__item')
+    infoItemCapital.setAttribute('class', 'info__item ligth')
+    infoRegion.setAttribute('class', 'info__item ligth')
+    infoItemPoblation.setAttribute('class', 'info__item ligth')
 
     contentBTN.classList.add('content__btn')
     btnCard.classList.add('button__card')
@@ -32,8 +33,8 @@ const createCard = (event, data) => {
     imgCard.classList.add('card__image')
     imgCard.setAttribute('src', `${data.flag}`)
     imgCard.setAttribute('alt', 'image of countrie')
-    btnCard.setAttribute('nameCountrie', `${data.name}`)
-    btnCard.setAttribute('nameCountrieEval', `${data.name}`)
+    btnCard.setAttribute('data-nameCountrie', `${data.name}`)
+    btnCard.setAttribute('data-nameCountrieEval', `${data.name}`)
 
     
     //textos y más
@@ -66,6 +67,8 @@ const createCard = (event, data) => {
 }
 
 const createModal = (data, event) => {
+
+    console.log(data, event)
     
     //creando nodos del DOM
     const modal = document.getElementById('modal')
