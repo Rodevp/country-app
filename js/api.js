@@ -44,6 +44,5 @@ const getAllCountries = async () => {
 
 export {
     getCountrie,
-    getCountriesOfContinets,
     getAllCountries
 }

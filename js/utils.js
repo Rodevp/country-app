@@ -1,14 +1,10 @@
 const validData = (data) => {
 
-    if (typeof data === "undefined" ) return ['X', 'X', 'X']
+    if (data.length === 1 ) return [...data, '-', '-']
 
-    if (typeof data === "object" ) return ['X', 'X', 'X']
-
-    if (data.length === 1 ) return [...data, 'X', 'X']
-
-    if (data.length > 3 ) return data.slice(0, 3)
+    if (data.length > 3 ) return [data[0], data[1], data[2]]
     
-    if (data.length < 3 ) return [...data, 'X']
+    return [...data, '-', '-']
 
 }
 
@@ -19,6 +15,10 @@ const parseDataCountrie = (data) => {
 
     const newData = dataCopy.map( dataOfCountrie => {
 
+        const borders = dataOfCountrie.borders === undefined 
+            ? ['-', '-', '-']
+            : dataOfCountrie.borders
+
         const dataParse = {
             name: dataOfCountrie.name.toLowerCase(),
             domain: dataOfCountrie.topLevelDomain,
@@ -27,8 +27,8 @@ const parseDataCountrie = (data) => {
             population: dataOfCountrie.population,
             nativeName: dataOfCountrie.nativeName,
             currencie: dataOfCountrie.currencies !== undefined ? dataOfCountrie.currencies[0].code : '',
-            languages: validData( dataOfCountrie.languages.map(lan => lan.nativeName)  ),
-            borders: validData( dataOfCountrie.borders),
+            languages: validData( dataOfCountrie.languages.map(lan => lan.nativeName) ),
+            borders: validData( borders ),
             flag: dataOfCountrie.flags.svg ,
             capital: dataOfCountrie.capital
         }

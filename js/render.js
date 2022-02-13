@@ -146,7 +146,7 @@ const createModal = (data, event) => {
     capital.textContent = `Capital: ${data.capital}`
     domain.textContent = `Dominion: ${data.domain}`
     currencie.textContent = `Moneda: ${data.currencie}`
-    languages.textContent = `Lemguajes ${data.languages[0]} ${data.languages[1]} ${data.languages[2]}`
+    languages.textContent = `Lenguajes ${data.languages[0]} ${data.languages[1]} ${data.languages[2]}`
     borderCountrieOne.textContent = data.borders[0]    
     borderCountrieTwo.textContent = data.borders[1]    
     borderCountrieThree.textContent = data.borders[2]    

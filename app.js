@@ -28,7 +28,7 @@ const detailCountrie = e => {
                 console.log('hola xd',parseDataCountrie(data))
                 const dataModal = createModal(parseDataCountrie(data)[0], () => {})
                 modal.appendChild(dataModal)
-                //localStorage.setItem('detailCountrie', JSON.stringify(parseDataCountrie(data[0]) ) )
+                localStorage.setItem('detailCountrie', JSON.stringify(parseDataCountrie(data[0]) ) )
             })  
             .catch(error => console.log(error) )
     }
