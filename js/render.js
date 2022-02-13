@@ -68,8 +68,6 @@ const createCard = (event, data) => {
 
 const createModal = (data, event) => {
 
-    console.log(data, event)
-    
     //creando nodos del DOM
     const modal = document.getElementById('modal')
     const modalEffect = document.createElement('div')
@@ -136,6 +134,8 @@ const createModal = (data, event) => {
     //textos y más
     closeModal.textContent = 'X'
     closeModal.addEventListener('click', event)
+    closeModal.setAttribute('data-contrie', data.name)
+    closeModal.setAttribute('data-contrieeval', data.name)
 
     titleModal.textContent = data.name
     titleBorderCountries.textContent = 'Paises Vecinos'

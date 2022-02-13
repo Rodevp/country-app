@@ -10,28 +10,34 @@ const cardsContent = document.getElementById('cards')
 const fragment = document.createDocumentFragment()
 
 localStorage.setItem('currentTheme', 'ligth')
-localStorage.setItem('detailCountrie', '[]')
 const countriesCopy = []
 const allCountries = getAllCountries()
 
+const closeModal = e => {
+    
+    if (e.target.dataset.countrie === e.target.dataset.countrieeval) {
+        const modal = document.getElementById('modal')
+        modal.style.transform = 'scale(0)'
+    }
+
+}
+
 const detailCountrie = e => {
 
-    console.log(e.target.dataset)
-
     if (e.target.dataset.namecountrie === e.target.dataset.namecountrieeval) {
+
         getCountrie(e.target.dataset.namecountrie)
             .then( data => {
                 
                 const modal = document.getElementById('modal')
-                modal.classList.add('open__modal')
                 modal.style.transform = 'scale(1)'
                 console.log('hola xd',parseDataCountrie(data))
-                const dataModal = createModal(parseDataCountrie(data)[0], () => {})
+                const dataModal = createModal(parseDataCountrie(data)[0], closeModal)
                 modal.appendChild(dataModal)
-                localStorage.setItem('detailCountrie', JSON.stringify(parseDataCountrie(data[0]) ) )
             })  
             .catch(error => console.log(error) )
-    }
+    
+        }
 
 }
 
