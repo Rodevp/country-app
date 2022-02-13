@@ -32,16 +32,19 @@ const createCard = (event, data) => {
     imgCard.classList.add('card__image')
     imgCard.setAttribute('src', `${data.flag}`)
     imgCard.setAttribute('alt', 'image of countrie')
+    btnCard.setAttribute('nameCountrie', `${data.name}`)
+    btnCard.setAttribute('nameCountrieEval', `${data.name}`)
 
     
     //textos y más
     btnCard.textContent = 'Ver más'
     btnCard.addEventListener('click', event)
+    contentBTN.appendChild(btnCard)
     
     cardTitle.textContent = data.name
-    infoItemCapital.textContent = data.capital
-    infoItemPoblation.textContent = data.population
-    infoItemCapital.textContent = data.capital
+    infoItemPoblation.textContent = `Población: ${data.population}`
+    infoRegion.textContent = `Región: ${data.region}`
+    infoItemCapital.textContent = `Capital: ${data.capital === undefined ? 'no se conoce' : data.capital}`
 
     //componiendo card
 
@@ -56,7 +59,7 @@ const createCard = (event, data) => {
 
     divCard.appendChild(wrapperTitle)
     divCard.appendChild(cardInformation)
-    divCard.appendChild(btnCard)
+    divCard.appendChild(contentBTN)
 
     return divCard
 
