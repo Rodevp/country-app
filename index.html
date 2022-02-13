@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./app.css">
+    <title>Country APP</title>
+</head>
+
+<body>
+    <header class="header ligth">
+        <h1 class="title">
+            Country App
+        </h1>
+        <div class="change__theme">
+            <button id="change__theme">
+                Cambiar tema
+            </button>
+        </div>
+    </header>
+
+    <main class="wrapper ligth">
+        <section class="option">
+            <section class="option__item">
+                <input
+                    type="text"
+                    class="search__input ligth"
+                    id="search"
+                    placeholder="Buscar Pais"
+                >
+            </section>
+            <section class="option__item">
+               <!--
+                 <select
+                    name="country"
+                    id="country_selecte"
+                    class="select__country ligth"
+                >
+                    <option value="africa">africa</option>
+                    <option value="america">america</option>
+                    <option value="europe">europe</option>
+                    <option value="asia">asia</option>
+                    <option value="oceania">oceania</option>
+                </select>
+
+               -->
+            </section>
+        </section>
+        <section class="grid_countrys" id="cards">
+        </section>
+    </main>
+
+    <div class="modal" id="modal">
+    </div>
+
+    <script  type="module"  src="./app.js"></script>
+
+</body>
+
+</html>
