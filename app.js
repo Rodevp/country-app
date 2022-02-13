@@ -4,17 +4,22 @@ import {
     getCountrie
 } from './js/api.js'
 import { parseDataCountrie } from './js/utils.js'
+import { changeTheme } from './js/changeTheme.js'
 
 const search = document.getElementById('search')
 const cardsContent = document.getElementById('cards')
+const theme = document.getElementById('change__theme')
 const fragment = document.createDocumentFragment()
 
-localStorage.setItem('currentTheme', 'ligth')
 const countriesCopy = []
 const allCountries = getAllCountries()
+let whatTheme = localStorage.getItem('theme') !== null
+    ? localStorage.getItem('theme')
+    : 'ligth'
+
 
 const closeModal = e => {
-    
+
     if (e.target.dataset.countrie === e.target.dataset.countrieeval) {
         const modal = document.getElementById('modal')
         modal.style.transform = 'scale(0)'
@@ -27,27 +32,26 @@ const detailCountrie = e => {
     if (e.target.dataset.namecountrie === e.target.dataset.namecountrieeval) {
 
         getCountrie(e.target.dataset.namecountrie)
-            .then( data => {
-                
+            .then(data => {
+
                 const modal = document.getElementById('modal')
                 modal.style.transform = 'scale(1)'
-                console.log('hola xd',parseDataCountrie(data))
                 const dataModal = createModal(parseDataCountrie(data)[0], closeModal)
                 modal.appendChild(dataModal)
-            })  
-            .catch(error => console.log(error) )
-    
-        }
+            })
+            .catch(error => console.log(error))
+
+    }
 
 }
 
 allCountries
     .then(data => {
-        
-        localStorage.setItem('countries', JSON.stringify(parseDataCountrie(data)) )
+
+        localStorage.setItem('countries', JSON.stringify(parseDataCountrie(data)))
         countriesCopy.push(...parseDataCountrie(data))
-        
-        parseDataCountrie(data).forEach( (countrie) => {
+
+        parseDataCountrie(data).forEach((countrie) => {
             cardsContent.innerHTML = ''
             const card = createCard(detailCountrie, countrie)
             fragment.appendChild(card)
@@ -56,21 +60,21 @@ allCountries
         cardsContent.appendChild(fragment)
 
     })
-    .catch(error => console.log(error) )
+    .catch(error => console.log(error))
 
 
 search.addEventListener('input', e => {
 
     console.log(e.target.value)
-    
+
     if (e.target.value !== '') {
 
-        const filterCoutrie = [...JSON.parse( localStorage.getItem('countries') ) ]
-            .filter(countrie => countrie.name.includes( e.target.value.toLowerCase() ) )
+        const filterCoutrie = [...JSON.parse(localStorage.getItem('countries'))]
+            .filter(countrie => countrie.name.includes(e.target.value.toLowerCase()))
 
-        localStorage.setItem('countries', JSON.stringify(filterCoutrie) )
+        localStorage.setItem('countries', JSON.stringify(filterCoutrie))
 
-        filterCoutrie.forEach( (countrie) => {
+        filterCoutrie.forEach((countrie) => {
             cardsContent.innerHTML = ''
             const card = createCard(detailCountrie, countrie)
             fragment.appendChild(card)
@@ -80,8 +84,8 @@ search.addEventListener('input', e => {
 
     } else {
 
-        
-        countriesCopy.forEach( (countrie) => {
+
+        countriesCopy.forEach((countrie) => {
             cardsContent.innerHTML = ''
             const card = createCard(detailCountrie, countrie)
             fragment.appendChild(card)
@@ -89,10 +93,23 @@ search.addEventListener('input', e => {
 
         cardsContent.appendChild(fragment)
 
-        localStorage.setItem('countries', JSON.stringify(countriesCopy) )
+        localStorage.setItem('countries', JSON.stringify(countriesCopy))
     }
 
 })
 
 
+theme.addEventListener('click', e => {
+
+    if ( whatTheme === 'ligth') {
+        changeTheme()
+        localStorage.setItem('theme', 'ligth')
+    }
+
+    if ( whatTheme === 'dark') {
+        changeTheme()
+        localStorage.setItem('theme', 'dark')
+    }
+
+})
 

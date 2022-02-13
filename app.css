@@ -213,15 +213,15 @@
     background-color: var(--Dark-Blue-DarkTheme-card);
 }
 
-.theme__dark_text {
-    color: var(--White-Dark-Mode-Text);
-}
-
-.theme__dark_text:focus, .dark__mode_theme_inputs:focus::placeholder {
-    color: var(--Very-Dark-Blue-DarkTheme-Background);;
+.dark__mode_theme_inputs:focus::placeholder {
+    color: var(--Very-Dark-Blue-DarkTheme-Background);
 }
 
 .dark__mode_theme_inputs::placeholder { 
+    color: var(--White-Dark-Mode-Text);
+}
+
+.dark__mode__theme_text {
     color: var(--White-Dark-Mode-Text);
 }
 
