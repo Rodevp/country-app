@@ -97,19 +97,3 @@ search.addEventListener('input', e => {
     }
 
 })
-
-
-theme.addEventListener('click', e => {
-
-    if ( whatTheme === 'ligth') {
-        changeTheme()
-        localStorage.setItem('theme', 'ligth')
-    }
-
-    if ( whatTheme === 'dark') {
-        changeTheme()
-        localStorage.setItem('theme', 'dark')
-    }
-
-})
-
