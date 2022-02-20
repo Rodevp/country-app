@@ -4,19 +4,13 @@ import {
     getCountrie
 } from './js/api.js'
 import { parseDataCountrie } from './js/utils.js'
-import { changeTheme } from './js/changeTheme.js'
 
 const search = document.getElementById('search')
 const cardsContent = document.getElementById('cards')
-const theme = document.getElementById('change__theme')
 const fragment = document.createDocumentFragment()
 
 const countriesCopy = []
 const allCountries = getAllCountries()
-let whatTheme = localStorage.getItem('theme') !== null
-    ? localStorage.getItem('theme')
-    : 'ligth'
-
 
 const closeModal = e => {
 

@@ -89,7 +89,6 @@ const createModal = (data, event) => {
     const modalInformationItems = document.createElement('ul')
     const moreModalInformationItems = document.createElement('ul')
     
-    const nameNative = document.createElement('li')
     const population = document.createElement('li')
     const region = document.createElement('li')
     const subRegion = document.createElement('li')
@@ -112,7 +111,6 @@ const createModal = (data, event) => {
     titleModal.classList.add('country__name')
 
     modalInformationItems.classList.add('infomation__items')
-    nameNative.classList.add('item')
     population.classList.add('item')
     region.classList.add('item')
     subRegion.classList.add('item')
@@ -139,20 +137,18 @@ const createModal = (data, event) => {
 
     titleModal.textContent = data.name
     titleBorderCountries.textContent = 'Paises Vecinos'
-    nameNative.textContent = `Nombre Nativo: ${data.nativeName}`
     population.textContent = `Población: ${data.population}`
     region.textContent = `Region: ${data.region}`
     subRegion.textContent =  `Sub-Region: ${data.subRegion}`
     capital.textContent = `Capital: ${data.capital}`
     domain.textContent = `Dominion: ${data.domain}`
     currencie.textContent = `Moneda: ${data.currencie}`
-    languages.textContent = `Lenguajes ${data.languages[0]} ${data.languages[1]} ${data.languages[2]}`
+    languages.textContent = `Lenguajes:  ${data.languages[0]} ${data.languages[1]} ${data.languages[2]}`
     borderCountrieOne.textContent = data.borders[0]    
     borderCountrieTwo.textContent = data.borders[1]    
     borderCountrieThree.textContent = data.borders[2]    
 
     //componiendo modal
-    modalInformationItems.appendChild(nameNative)
     modalInformationItems.appendChild(population)
     modalInformationItems.appendChild(region)
     modalInformationItems.appendChild(subRegion)

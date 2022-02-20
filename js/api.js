@@ -1,6 +1,6 @@
 // uris 
-const uriCountriesALl = () => `https://restcountries.com/v2/all/`
-const uriCountrieName = name => `https://restcountries.com/v2/name/${name}`
+const uriCountriesALl = () => `https://restcountries.com/v3.1/all`
+const uriCountrieName = name => `https://restcountries.com/v3.1/name/${name}`
 const uriCountrieContinent = continent => `https://restcountries.com/v2/continent/${continent}`
 
 // peticiones
