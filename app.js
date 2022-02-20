@@ -1,12 +1,14 @@
 import { createCard, createModal } from './js/render.js'
 import {
     getAllCountries,
-    getCountrie
+    getCountrie,
+    getCountriesOfContinets
 } from './js/api.js'
 import { parseDataCountrie } from './js/utils.js'
 
 const search = document.getElementById('search')
 const cardsContent = document.getElementById('cards')
+const changeContinent = document.getElementById('country_selected')
 const fragment = document.createDocumentFragment()
 
 const countriesCopy = []
@@ -43,6 +45,8 @@ allCountries
     .then(data => {
 
         localStorage.setItem('countries', JSON.stringify(parseDataCountrie(data)))
+        
+        countriesCopy.length = 0
         countriesCopy.push(...parseDataCountrie(data))
 
         parseDataCountrie(data).forEach((countrie) => {
@@ -58,8 +62,6 @@ allCountries
 
 
 search.addEventListener('input', e => {
-
-    console.log(e.target.value)
 
     if (e.target.value !== '') {
 
@@ -78,7 +80,6 @@ search.addEventListener('input', e => {
 
     } else {
 
-
         countriesCopy.forEach((countrie) => {
             cardsContent.innerHTML = ''
             const card = createCard(detailCountrie, countrie)
@@ -89,5 +90,46 @@ search.addEventListener('input', e => {
 
         localStorage.setItem('countries', JSON.stringify(countriesCopy))
     }
+
+})
+
+changeContinent.addEventListener('change', async (e) => {
+
+    localStorage.setItem('current', e.target.value)
+    
+    if (e.target.value === 'all') {
+
+        localStorage.setItem('countries', JSON.stringify( parseDataCountrie(await allCountries) ) )
+        countriesCopy.length = 0
+        countriesCopy.push(...parseDataCountrie(await allCountries))
+
+        parseDataCountrie( await allCountries ).forEach((countrie) => {
+            
+            cardsContent.innerHTML = ''
+            const card = createCard(detailCountrie, countrie)
+            fragment.appendChild(card)
+
+        })
+
+        cardsContent.appendChild(fragment)
+    }
+
+    if (localStorage.getItem('current') === e.target.value && localStorage.getItem('current') !== 'all') {
+        
+        localStorage.setItem('countries', JSON.stringify( parseDataCountrie( await getCountriesOfContinets(e.target.value) ) ) )
+        countriesCopy.length = 0
+        countriesCopy.push(...parseDataCountrie( await getCountriesOfContinets(e.target.value) ) )
+
+        parseDataCountrie( await getCountriesOfContinets(e.target.value) ).forEach((countrie) => {
+            
+            cardsContent.innerHTML = ''
+            const card = createCard(detailCountrie, countrie)
+            fragment.appendChild(card)
+
+        })
+
+        cardsContent.appendChild(fragment)
+    }
+
 
 })
