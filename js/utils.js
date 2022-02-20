@@ -43,14 +43,9 @@ const parseDataCountrie = (data) => {
             ? ['-', '-', '-']
             : dataOfCountrie.borders
 
-            console.log('objecto', dataOfCountrie.capital)
-            console.log('objecto nombre', dataOfCountrie.name.common)
-            console.log(dataOfCountrie.currencies, dataOfCountrie.cca3)
-
         const currencie = dataOfCountrie.currencies !== undefined 
             ? getCurencies(dataOfCountrie.currencies)[0]
             : ''
-
 
         const languages = validData( parseObjValuesToArray(dataOfCountrie.languages) )
 
