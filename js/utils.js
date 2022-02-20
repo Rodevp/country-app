@@ -8,6 +8,30 @@ const validData = (data) => {
 
 }
 
+const parseObjValuesToArray = obj => {
+    
+    const arr = []
+    
+    for (const key in obj) {
+
+        arr.push(obj[key])
+
+    }
+
+    return arr
+}
+
+const getCurencies = obj => {
+    const arr = []
+    
+    for (const key in obj) {
+
+        arr.push(obj[key].name)
+
+    }
+
+    return arr
+}
 
 const parseDataCountrie = (data) => {
 
@@ -19,18 +43,28 @@ const parseDataCountrie = (data) => {
             ? ['-', '-', '-']
             : dataOfCountrie.borders
 
+            console.log('objecto', dataOfCountrie.capital)
+            console.log('objecto nombre', dataOfCountrie.name.common)
+            console.log(dataOfCountrie.currencies, dataOfCountrie.cca3)
+
+        const currencie = dataOfCountrie.currencies !== undefined 
+            ? getCurencies(dataOfCountrie.currencies)[0]
+            : ''
+
+
+        const languages = validData( parseObjValuesToArray(dataOfCountrie.languages) )
+
         const dataParse = {
-            name: dataOfCountrie.name.toLowerCase(),
-            domain: dataOfCountrie.topLevelDomain,
+            name: dataOfCountrie.name.common.toLowerCase(),
+            domain: dataOfCountrie.tld,
             region: dataOfCountrie.region,
             subRegion: dataOfCountrie.subregion,
             population: dataOfCountrie.population,
-            nativeName: dataOfCountrie.nativeName,
-            currencie: dataOfCountrie.currencies !== undefined ? dataOfCountrie.currencies[0].code : '',
-            languages: validData( dataOfCountrie.languages.map(lan => lan.nativeName) ),
+            currencie: currencie,
+            languages: languages,
             borders: validData( borders ),
             flag: dataOfCountrie.flags.svg ,
-            capital: dataOfCountrie.capital
+            capital: dataOfCountrie.capital === undefined ? 'Se desconoce' : dataOfCountrie.capital[0]
         }
 
         return dataParse
